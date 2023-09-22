@@ -5,18 +5,18 @@ import os
 #import sys
 
 def insertion_sort(nums):  
-    # Сортировку начинаем со второго элемента, т.к. считается, что первый элемент уже отсортирован
-    for i in range(1, len(nums)):
-        item_to_insert = nums[i]
-        # Сохраняем ссылку на индекс предыдущего элемента
-        j = i - 1
-        #Элементы отсортированного сегмента перемещаем вперёд, если они больше элемента для вставки
-        while j >= 0 and nums[j] > item_to_insert:
-            nums[j + 1] = nums[j]
+    # РЎРѕСЂС‚РёСЂРѕРІРєСѓ РЅР°С‡РёРЅР°РµРј СЃРѕ РІС‚РѕСЂРѕРіРѕ СЌР»РµРјРµРЅС‚Р°, С‚.Рє. СЃС‡РёС‚Р°РµС‚СЃСЏ, С‡С‚Рѕ РїРµСЂРІС‹Р№ СЌР»РµРјРµРЅС‚ СѓР¶Рµ РѕС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅ
+        for i in range(1, len(nums)):
+            item_to_insert = nums[i]
+            # РЎРѕС…СЂР°РЅСЏРµРј СЃСЃС‹Р»РєСѓ РЅР° РёРЅРґРµРєСЃ РїСЂРµРґС‹РґСѓС‰РµРіРѕ СЌР»РµРјРµРЅС‚Р°
+            j = i - 1
+            #Р­Р»РµРјРµРЅС‚С‹ РѕС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅРЅРѕРіРѕ СЃРµРіРјРµРЅС‚Р° РїРµСЂРµРјРµС‰Р°РµРј РІРїРµСЂС‘Рґ, РµСЃР»Рё РѕРЅРё Р±РѕР»СЊС€Рµ СЌР»РµРјРµРЅС‚Р° РґР»СЏ РІСЃС‚Р°РІРєРё
+            while j >= 0 and nums[j] > item_to_insert:
+                nums[j + 1] = nums[j]
 
-            j -= 1
-        # Вставляем элемент
-        nums[j + 1] = item_to_insert
+                j -= 1
+            # Р’СЃС‚Р°РІР»СЏРµРј СЌР»РµРјРµРЅС‚
+            nums[j + 1] = item_to_insert
 
 def readFile(filename):
     filehandle=open(filename,'+wt')
@@ -51,7 +51,7 @@ while(i!=2):
     i=int(input())
     if i==2:
         exit()
-    #Проверка введённых длины, максимального и минимального значений массива
+    #РџСЂРѕРІРµСЂРєР° РІРІРµРґС‘РЅРЅС‹С… РґР»РёРЅС‹, РјР°РєСЃРёРјР°Р»СЊРЅРѕРіРѕ Рё РјРёРЅРёРјР°Р»СЊРЅРѕРіРѕ Р·РЅР°С‡РµРЅРёР№ РјР°СЃСЃРёРІР°
     print("\n Array length:")
     try:
         length=int(input())
@@ -81,10 +81,10 @@ while(i!=2):
     if min_num>max_num:
         print("The minimum value cannot be greater than the maximum.")
         continue
-    #заполнение массива
+    #Р·Р°РїРѕР»РЅРµРЅРёРµ РјР°СЃСЃРёРІР°
     SortArr=[]
     SortArr=np.random.randint(min_num,max_num,length)
-    #Запись массива в файл
+    #Р—Р°РїРёСЃСЊ РјР°СЃСЃРёРІР° РІ С„Р°Р№Р»
     print("\nThe name of the file with the unsorted array (Example: filename ):")
     name=str(input()+".txt")
     try:
@@ -95,7 +95,7 @@ while(i!=2):
         continue
     
     SortArr=[]
-    #читаем рандомный массив из файла, в который его записали
+    #С‡РёС‚Р°РµРј СЂР°РЅРґРѕРјРЅС‹Р№ РјР°СЃСЃРёРІ РёР· С„Р°Р№Р»Р°, РІ РєРѕС‚РѕСЂС‹Р№ РµРіРѕ Р·Р°РїРёСЃР°Р»Рё
     try:
         #FileName=OpenFile(name)
         #FileName=OpenFile("test.txt")
@@ -103,9 +103,9 @@ while(i!=2):
     except Exception as err:
         print("Could not read the file. Error:"+ err)
         continue
-    #Сортировка массива
+    #РЎРѕСЂС‚РёСЂРѕРІРєР° РјР°СЃСЃРёРІР°
     insertion_sort(SortArr)  
-    #Запись отсортированного массива в файл
+    #Р—Р°РїРёСЃСЊ РѕС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅРЅРѕРіРѕ РјР°СЃСЃРёРІР° РІ С„Р°Р№Р»
     print("\nThe name of the file with the sorted array (Example: filename ):")
     name=str(input()+".txt")
     try:
