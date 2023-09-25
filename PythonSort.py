@@ -63,16 +63,15 @@ def OpenFile(file_):
 def readArrFile(filename, array):
    f=open(filename,encoding='utf-8')
    for line in f:
-    print(int(x) for x in line.split())
+    #print(int(x) for x in line.split())
     array.append([int(x) for x in line.split()])
     #array.append(int(f.readline()))
 
 def writeFile(fileName, array):
     resultFile=open(fileName,'w+',encoding = 'utf-8')
     for i in array:
-                print(str(i))
+                #print(str(i))
                 resultFile.write(str(i)+"\n")
-                #resultFile.write("\n")
     resultFile.close()
 i=1
 while(i!=2):
@@ -120,7 +119,6 @@ while(i!=2):
         print("\nThe name of the file with the unsorted array (Example: filename ):")
         name=str(input()+".txt")
         try:
-            #FileName=OpenFile(name)
             writeFile(name,SortArr)#FileName,SortArr)
         except Exception as err:
             print("Failed to create and fill in the file. Error:"+ err)
